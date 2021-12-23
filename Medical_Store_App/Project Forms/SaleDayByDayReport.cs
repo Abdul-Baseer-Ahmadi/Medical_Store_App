@@ -26,8 +26,20 @@ namespace Medical_Store_App.Project_Forms
 
         private void SaleDayByDayReport_Load(object sender, EventArgs e)
         {
-            var allSoldProducts = db.SoldProducts.Include("Sold_Product").Where(i => i.Sale_Date >= startDate && i.Sale_Date <= endDate).ToList();
-        
+            var allSoldProducts = db.SoldProducts.Where(i => i.Sale_Date == startDate).ToList();
+            //var allSoldProducts = (from products in db.SoldProducts.Where(i => i.Sale_Date == startDate && i.Sale_Date <= endDate)
+            //                       select new
+            //                       {
+            //                           products.Sale_History.Sale_Id,
+            //                           products.Sold_Product.Code,
+            //                           products.Sold_Product.Name,
+            //                           products.Sold_Product.Type,
+            //                           products.Price,
+            //                           products.Quantity,
+            //                           products.Profit,
+            //                           products.Total_Amount,
+            //                           products.Sale_Date
+            //                       }).ToList();
             SaleReport saleRpt = new SaleReport();
             saleRpt.SetDataSource(allSoldProducts);
             crystalReportViewerSaleDayByDay.ReportSource = saleRpt;
