@@ -28,7 +28,9 @@ namespace Medical_Store_App.Project_Forms
             }
             else if(comboBoxReportType.SelectedIndex == 2)
             {
-                MessageBox.Show("Sale");
+                
+                SaleDayByDayReport daySaleReport = new SaleDayByDayReport(startDate, endDate);
+                daySaleReport.ShowDialog();
             }
             else if(comboBoxReportType.SelectedIndex == 3)
             {

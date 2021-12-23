@@ -166,6 +166,12 @@
     <Compile Include="Project Forms\CreateAccountForm.Designer.cs">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Project Forms\SaleDayByDayReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\SaleDayByDayReport.Designer.cs">
+      <DependentUpon>SaleDayByDayReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Project Forms\SaleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\CreateAccountForm.resx">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\SaleDayByDayReport.resx">
+      <DependentUpon>SaleDayByDayReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\SaleForm.resx">
       <DependentUpon>SaleForm.cs</DependentUpon>
