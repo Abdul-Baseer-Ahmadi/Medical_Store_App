@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{713711E0-E60D-4F7F-B96A-4F6C08CB4D02}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Medical_Store_App</RootNamespace>
+    <AssemblyName>Medical_Store_App</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MedicalStoreDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalStoreDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalStoreDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalStoreDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalStoreDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalStoreDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalStoreDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalStoreDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112081536302_createUserLogin.cs" />
+    <Compile Include="Migrations\202112081536302_createUserLogin.designer.cs">
+      <DependentUpon>202112081536302_createUserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112090723284_createStockTable.cs" />
+    <Compile Include="Migrations\202112090723284_createStockTable.designer.cs">
+      <DependentUpon>202112090723284_createStockTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112091454095_createEmpty.cs" />
+    <Compile Include="Migrations\202112091454095_createEmpty.designer.cs">
+      <DependentUpon>202112091454095_createEmpty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112120338208_createSaleInfo.cs" />
+    <Compile Include="Migrations\202112120338208_createSaleInfo.designer.cs">
+      <DependentUpon>202112120338208_createSaleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112120353540_createSoldProduct.cs" />
+    <Compile Include="Migrations\202112120353540_createSoldProduct.designer.cs">
+      <DependentUpon>202112120353540_createSoldProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112121456095_updateSaleInfo.cs" />
+    <Compile Include="Migrations\202112121456095_updateSaleInfo.designer.cs">
+      <DependentUpon>202112121456095_updateSaleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112121457400_addPaidAmountToSaleInfo.cs" />
+    <Compile Include="Migrations\202112121457400_addPaidAmountToSaleInfo.designer.cs">
+      <DependentUpon>202112121457400_addPaidAmountToSaleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112121503002_addDefaultValuesToSaleInfo.cs" />
+    <Compile Include="Migrations\202112121503002_addDefaultValuesToSaleInfo.designer.cs">
+      <DependentUpon>202112121503002_addDefaultValuesToSaleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112182052404_createPurchaseInfo.cs" />
+    <Compile Include="Migrations\202112182052404_createPurchaseInfo.designer.cs">
+      <DependentUpon>202112182052404_createPurchaseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112191732015_changeForeignKeyInPurchaseInfo.cs" />
+    <Compile Include="Migrations\202112191732015_changeForeignKeyInPurchaseInfo.designer.cs">
+      <DependentUpon>202112191732015_changeForeignKeyInPurchaseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112191742377_changeForeignKeyInPurchaseInfo1.cs" />
+    <Compile Include="Migrations\202112191742377_changeForeignKeyInPurchaseInfo1.designer.cs">
+      <DependentUpon>202112191742377_changeForeignKeyInPurchaseInfo1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112191800501_createPurchaseItem.cs" />
+    <Compile Include="Migrations\202112191800501_createPurchaseItem.designer.cs">
+      <DependentUpon>202112191800501_createPurchaseItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112191821078_addInvoiceNoToPurchaseItems.cs" />
+    <Compile Include="Migrations\202112191821078_addInvoiceNoToPurchaseItems.designer.cs">
+      <DependentUpon>202112191821078_addInvoiceNoToPurchaseItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112201727423_removeProfitFromPurchaseItems.cs" />
+    <Compile Include="Migrations\202112201727423_removeProfitFromPurchaseItems.designer.cs">
+      <DependentUpon>202112201727423_removeProfitFromPurchaseItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112210623450_addTotalAmountToStock.cs" />
+    <Compile Include="Migrations\202112210623450_addTotalAmountToStock.designer.cs">
+      <DependentUpon>202112210623450_addTotalAmountToStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Project Db\MedicalContext.cs" />
+    <Compile Include="Project Db\PurchaseInfo.cs" />
+    <Compile Include="Project Db\PurchaseItem.cs" />
+    <Compile Include="Project Db\SaleInfo.cs" />
+    <Compile Include="Project Db\SoldProduct.cs" />
+    <Compile Include="Project Db\Stock.cs" />
+    <Compile Include="Project Db\UserLogin.cs" />
+    <Compile Include="Project Forms\AllSectionDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\AllSectionDetails.Designer.cs">
+      <DependentUpon>AllSectionDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\CreateAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\CreateAccountForm.Designer.cs">
+      <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\SaleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\SaleForm.Designer.cs">
+      <DependentUpon>SaleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\SoldProductReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\SoldProductReportForm.Designer.cs">
+      <DependentUpon>SoldProductReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\HomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Project Forms\PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\PurchasesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\PurchasesForm.Designer.cs">
+      <DependentUpon>PurchasesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\StockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\StockForm.Designer.cs">
+      <DependentUpon>StockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\StockReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\StockReportForm.Designer.cs">
+      <DependentUpon>StockReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\SaleReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SoldProductReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoldProductReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\StockHistoryReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockHistoryReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Migrations\202112081536302_createUserLogin.resx">
+      <DependentUpon>202112081536302_createUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112090723284_createStockTable.resx">
+      <DependentUpon>202112090723284_createStockTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112091454095_createEmpty.resx">
+      <DependentUpon>202112091454095_createEmpty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112120338208_createSaleInfo.resx">
+      <DependentUpon>202112120338208_createSaleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112120353540_createSoldProduct.resx">
+      <DependentUpon>202112120353540_createSoldProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112121456095_updateSaleInfo.resx">
+      <DependentUpon>202112121456095_updateSaleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112121457400_addPaidAmountToSaleInfo.resx">
+      <DependentUpon>202112121457400_addPaidAmountToSaleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112121503002_addDefaultValuesToSaleInfo.resx">
+      <DependentUpon>202112121503002_addDefaultValuesToSaleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112182052404_createPurchaseInfo.resx">
+      <DependentUpon>202112182052404_createPurchaseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112191732015_changeForeignKeyInPurchaseInfo.resx">
+      <DependentUpon>202112191732015_changeForeignKeyInPurchaseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112191742377_changeForeignKeyInPurchaseInfo1.resx">
+      <DependentUpon>202112191742377_changeForeignKeyInPurchaseInfo1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112191800501_createPurchaseItem.resx">
+      <DependentUpon>202112191800501_createPurchaseItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112191821078_addInvoiceNoToPurchaseItems.resx">
+      <DependentUpon>202112191821078_addInvoiceNoToPurchaseItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112201727423_removeProfitFromPurchaseItems.resx">
+      <DependentUpon>202112201727423_removeProfitFromPurchaseItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112210623450_addTotalAmountToStock.resx">
+      <DependentUpon>202112210623450_addTotalAmountToStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\AllSectionDetails.resx">
+      <DependentUpon>AllSectionDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\CreateAccountForm.resx">
+      <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\SaleForm.resx">
+      <DependentUpon>SaleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\SoldProductReportForm.resx">
+      <DependentUpon>SoldProductReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\PurchasesForm.resx">
+      <DependentUpon>PurchasesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\StockForm.resx">
+      <DependentUpon>StockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\StockReportForm.resx">
+      <DependentUpon>StockReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reports\SaleReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SaleReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SoldProductReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SoldProductReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StockHistoryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StockHistoryReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="MedicalStoreDataSet.xsc">
+      <DependentUpon>MedicalStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalStoreDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicalStoreDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicalStoreDataSet.xss">
+      <DependentUpon>MedicalStoreDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalStoreDataSet1.xsc">
+      <DependentUpon>MedicalStoreDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalStoreDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicalStoreDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicalStoreDataSet1.xss">
+      <DependentUpon>MedicalStoreDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalStoreDataSet2.xsc">
+      <DependentUpon>MedicalStoreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalStoreDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicalStoreDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicalStoreDataSet2.xss">
+      <DependentUpon>MedicalStoreDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalStoreDataSet3.xsc">
+      <DependentUpon>MedicalStoreDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalStoreDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicalStoreDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicalStoreDataSet3.xss">
+      <DependentUpon>MedicalStoreDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
