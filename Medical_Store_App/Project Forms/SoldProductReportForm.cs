@@ -36,7 +36,7 @@ namespace Medical_Store_App.Project_Forms
             SoldProductReport rpt = new SoldProductReport();
             
             rpt.SetDataSource(data);
-            crystalReportViewer1.ReportSource = rpt;
+            crystalReportViewerSoldProduct.ReportSource = rpt;
         }
     }
 }
