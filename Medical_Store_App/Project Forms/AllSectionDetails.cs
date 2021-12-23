@@ -17,5 +17,23 @@ namespace Medical_Store_App.Project_Forms
             InitializeComponent();
         }
 
+        private void btnPrintAnyReport_Click(object sender, EventArgs e)
+        {
+            var startDate = dateTimePickerStartDate.Value.Date;
+            var endDate = dateTimePickerEndDate.Value.Date;
+            if(comboBoxReportType.SelectedIndex == 1)
+            {
+                StockReportForm stockReport = new StockReportForm();
+                stockReport.ShowDialog();
+            }
+            else if(comboBoxReportType.SelectedIndex == 2)
+            {
+                MessageBox.Show("Sale");
+            }
+            else if(comboBoxReportType.SelectedIndex == 3)
+            {
+                MessageBox.Show("Purchase");
+            }
+        }
     }
 }

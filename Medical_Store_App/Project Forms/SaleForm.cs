@@ -284,6 +284,7 @@ namespace Medical_Store_App.Project_Forms
             }
             catch (Exception) { }
         }
+
         private void txtSearchByItemCode_TextChanged(object sender, EventArgs e)
         {
             var searchCode = txtSearchByItemCode.Text;
@@ -315,6 +316,29 @@ namespace Medical_Store_App.Project_Forms
             var billId = Convert.ToInt64(txtBill.Text);
             SoldProductReportForm frm = new SoldProductReportForm(billId);
             frm.ShowDialog();
+        }
+        private void btnLoadAllSales_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var startDate = dateTimePickerStartDate.Value.Date;
+                var endDate = dateTimePickerEndDate.Value.Date;
+                var allSoldItemsRecord = (from c in db.SoldProducts.Where(i => i.Sale_Date >= startDate && i.Sale_Date <= endDate)
+                                       select new
+                                       {
+                                           c.Id,
+                                           c.Sale_Id,
+                                           c.Sold_Product.Name,
+                                           c.Quantity,
+                                           c.Price,
+                                           c.Profit,
+                                           c.Total_Amount,
+                                           c.Sale_Date
+
+                                       }).ToList();
+                dGridViewSaleHistory.DataSource = allSoldItemsRecord;
+            }
+            catch (Exception) { }
         }
     }
 }

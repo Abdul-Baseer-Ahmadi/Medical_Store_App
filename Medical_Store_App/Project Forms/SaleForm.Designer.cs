@@ -54,11 +54,12 @@ namespace Medical_Store_App.Project_Forms
             this.lblCode = new System.Windows.Forms.Label();
             this.stocksTableAdapter = new Medical_Store_App.MedicalStoreDataSet1TableAdapters.StocksTableAdapter();
             this.grpSaleInfo = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.lblPayableAmountValue = new System.Windows.Forms.Label();
             this.lblPayableAmountTitle = new System.Windows.Forms.Label();
             this.lblSearchByItemCode = new System.Windows.Forms.Label();
             this.txtSearchByItemCode = new System.Windows.Forms.TextBox();
-            this.btnLoadAllPurchase = new System.Windows.Forms.Button();
+            this.btnLoadAllSales = new System.Windows.Forms.Button();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.dateTimePickerEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblStartDate = new System.Windows.Forms.Label();
@@ -98,7 +99,6 @@ namespace Medical_Store_App.Project_Forms
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.grpBoxSale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicalStoreDataSet1BindingSource)).BeginInit();
@@ -360,7 +360,7 @@ namespace Medical_Store_App.Project_Forms
             this.grpSaleInfo.Controls.Add(this.lblPayableAmountTitle);
             this.grpSaleInfo.Controls.Add(this.lblSearchByItemCode);
             this.grpSaleInfo.Controls.Add(this.txtSearchByItemCode);
-            this.grpSaleInfo.Controls.Add(this.btnLoadAllPurchase);
+            this.grpSaleInfo.Controls.Add(this.btnLoadAllSales);
             this.grpSaleInfo.Controls.Add(this.lblEndDate);
             this.grpSaleInfo.Controls.Add(this.dateTimePickerEndDate);
             this.grpSaleInfo.Controls.Add(this.lblStartDate);
@@ -379,6 +379,18 @@ namespace Medical_Store_App.Project_Forms
             this.grpSaleInfo.TabIndex = 107;
             this.grpSaleInfo.TabStop = false;
             this.grpSaleInfo.Text = "Sale Info";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.Green;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(1026, 70);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 23);
+            this.btnPrint.TabIndex = 103;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // lblPayableAmountValue
             // 
@@ -418,16 +430,17 @@ namespace Medical_Store_App.Project_Forms
             this.txtSearchByItemCode.TabIndex = 42;
             this.txtSearchByItemCode.TextChanged += new System.EventHandler(this.txtSearchByItemCode_TextChanged);
             // 
-            // btnLoadAllPurchase
+            // btnLoadAllSales
             // 
-            this.btnLoadAllPurchase.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnLoadAllPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoadAllPurchase.Location = new System.Drawing.Point(677, 70);
-            this.btnLoadAllPurchase.Name = "btnLoadAllPurchase";
-            this.btnLoadAllPurchase.Size = new System.Drawing.Size(96, 23);
-            this.btnLoadAllPurchase.TabIndex = 41;
-            this.btnLoadAllPurchase.Text = "Load all Sales";
-            this.btnLoadAllPurchase.UseVisualStyleBackColor = false;
+            this.btnLoadAllSales.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnLoadAllSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadAllSales.Location = new System.Drawing.Point(677, 70);
+            this.btnLoadAllSales.Name = "btnLoadAllSales";
+            this.btnLoadAllSales.Size = new System.Drawing.Size(96, 23);
+            this.btnLoadAllSales.TabIndex = 41;
+            this.btnLoadAllSales.Text = "Load all Sales";
+            this.btnLoadAllSales.UseVisualStyleBackColor = false;
+            this.btnLoadAllSales.Click += new System.EventHandler(this.btnLoadAllSales_Click);
             // 
             // lblEndDate
             // 
@@ -821,18 +834,6 @@ namespace Medical_Store_App.Project_Forms
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForLinkValue = true;
             // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.Green;
-            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(1026, 70);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint.TabIndex = 103;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -907,7 +908,7 @@ namespace Medical_Store_App.Project_Forms
         private System.Windows.Forms.Label lblPayableAmountTitle;
         private System.Windows.Forms.Label lblSearchByItemCode;
         private System.Windows.Forms.TextBox txtSearchByItemCode;
-        private System.Windows.Forms.Button btnLoadAllPurchase;
+        private System.Windows.Forms.Button btnLoadAllSales;
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerEndDate;
         private System.Windows.Forms.Label lblStartDate;

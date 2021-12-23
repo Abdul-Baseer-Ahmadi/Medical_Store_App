@@ -80,5 +80,17 @@ namespace Medical_Store_App.Project_Forms
             sale.Dock = DockStyle.Fill;
             sale.Show();
         }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AllSectionDetails allSectionDetails = new AllSectionDetails(); ;
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            allSectionDetails.MdiParent = this;
+            allSectionDetails.Dock = DockStyle.Fill;
+            allSectionDetails.Show();
+        }
     }
 }
