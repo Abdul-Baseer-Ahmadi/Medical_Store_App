@@ -26,5 +26,6 @@ namespace Medical_Store_App.Project_Db
         public DateTime Exp_Date { get; set; }
         public ICollection<SoldProduct> SoldProduct { get; set; }
         public ICollection<PurchaseItem> Purchase_Item { get; set; }
+        public ICollection<SaleReturn> Sale_Return { get; set; }
     }
 }

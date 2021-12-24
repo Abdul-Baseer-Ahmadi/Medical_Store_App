@@ -146,11 +146,16 @@
     <Compile Include="Migrations\202112210623450_addTotalAmountToStock.designer.cs">
       <DependentUpon>202112210623450_addTotalAmountToStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112240532303_createSaleReturn.cs" />
+    <Compile Include="Migrations\202112240532303_createSaleReturn.designer.cs">
+      <DependentUpon>202112240532303_createSaleReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Db\MedicalContext.cs" />
     <Compile Include="Project Db\PurchaseInfo.cs" />
     <Compile Include="Project Db\PurchaseItem.cs" />
     <Compile Include="Project Db\SaleInfo.cs" />
+    <Compile Include="Project Db\SaleReturn.cs" />
     <Compile Include="Project Db\SoldProduct.cs" />
     <Compile Include="Project Db\Stock.cs" />
     <Compile Include="Project Db\UserLogin.cs" />
@@ -284,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112210623450_addTotalAmountToStock.resx">
       <DependentUpon>202112210623450_addTotalAmountToStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112240532303_createSaleReturn.resx">
+      <DependentUpon>202112240532303_createSaleReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\AllSectionDetails.resx">
       <DependentUpon>AllSectionDetails.cs</DependentUpon>
