@@ -140,8 +140,10 @@ namespace Medical_Store_App.Project_Forms
         private void ReduceQuantity(string itemCode)
         {
             var quantity = Convert.ToInt32(txtQuantity.Text);
+            var totalAmount = Convert.ToSingle(lblAmountValue.Text) - profit;
             var itemToBeReduce = db.Stocks.SingleOrDefault(c => c.Code == itemCode);
             itemToBeReduce.Quantity = itemToBeReduce.Quantity - quantity;
+            itemToBeReduce.Total_Amount = itemToBeReduce.Total_Amount - totalAmount;
             db.Entry(itemToBeReduce).State = EntityState.Modified;
             db.SaveChanges();
             lblCurrentStockQuantity.Text = itemToBeReduce.Quantity.ToString();

@@ -42,6 +42,7 @@ namespace Medical_Store_App.Project_Forms
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
+            this.saleReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,10 +54,11 @@ namespace Medical_Store_App.Project_Forms
             this.saleToolStripMenuItem,
             this.purchaseToolStripMenuItem,
             this.paymentToolStripMenuItem,
-            this.reportToolStripMenuItem});
+            this.reportToolStripMenuItem,
+            this.saleReturnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1154, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1360, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -105,7 +107,7 @@ namespace Medical_Store_App.Project_Forms
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Location = new System.Drawing.Point(0, 24);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1154, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(1360, 50);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -157,11 +159,18 @@ namespace Medical_Store_App.Project_Forms
             this.lblTime.TabIndex = 10;
             this.lblTime.Text = "Time";
             // 
+            // saleReturnToolStripMenuItem
+            // 
+            this.saleReturnToolStripMenuItem.Name = "saleReturnToolStripMenuItem";
+            this.saleReturnToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.saleReturnToolStripMenuItem.Text = "Sale Return";
+            this.saleReturnToolStripMenuItem.Click += new System.EventHandler(this.saleReturnToolStripMenuItem_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 450);
+            this.ClientSize = new System.Drawing.Size(1360, 587);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblUserName);
@@ -196,5 +205,6 @@ namespace Medical_Store_App.Project_Forms
         public System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.ToolStripMenuItem saleReturnToolStripMenuItem;
     }
 }

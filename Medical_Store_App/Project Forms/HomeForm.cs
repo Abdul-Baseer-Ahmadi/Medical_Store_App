@@ -92,5 +92,17 @@ namespace Medical_Store_App.Project_Forms
             allSectionDetails.Dock = DockStyle.Fill;
             allSectionDetails.Show();
         }
+
+        private void saleReturnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReturnSaleForm returnSaleForm = new ReturnSaleForm(); ;
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            returnSaleForm.MdiParent = this;
+            returnSaleForm.Dock = DockStyle.Fill;
+            returnSaleForm.Show();
+        }
     }
 }

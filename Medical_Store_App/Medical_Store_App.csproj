@@ -150,10 +150,19 @@
     <Compile Include="Migrations\202112240532303_createSaleReturn.designer.cs">
       <DependentUpon>202112240532303_createSaleReturn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112241631276_createReturnInfo.cs" />
+    <Compile Include="Migrations\202112241631276_createReturnInfo.designer.cs">
+      <DependentUpon>202112241631276_createReturnInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112241635168_setDefaultValueForTotalAmountInReturnInfo.cs" />
+    <Compile Include="Migrations\202112241635168_setDefaultValueForTotalAmountInReturnInfo.designer.cs">
+      <DependentUpon>202112241635168_setDefaultValueForTotalAmountInReturnInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Db\MedicalContext.cs" />
     <Compile Include="Project Db\PurchaseInfo.cs" />
     <Compile Include="Project Db\PurchaseItem.cs" />
+    <Compile Include="Project Db\ReturnInfo.cs" />
     <Compile Include="Project Db\SaleInfo.cs" />
     <Compile Include="Project Db\SaleReturn.cs" />
     <Compile Include="Project Db\SoldProduct.cs" />
@@ -170,6 +179,12 @@
     </Compile>
     <Compile Include="Project Forms\CreateAccountForm.Designer.cs">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\ReturnSaleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\ReturnSaleForm.Designer.cs">
+      <DependentUpon>ReturnSaleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Project Forms\SaleDayByDayReport.cs">
       <SubType>Form</SubType>
@@ -293,11 +308,20 @@
     <EmbeddedResource Include="Migrations\202112240532303_createSaleReturn.resx">
       <DependentUpon>202112240532303_createSaleReturn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112241631276_createReturnInfo.resx">
+      <DependentUpon>202112241631276_createReturnInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112241635168_setDefaultValueForTotalAmountInReturnInfo.resx">
+      <DependentUpon>202112241635168_setDefaultValueForTotalAmountInReturnInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\AllSectionDetails.resx">
       <DependentUpon>AllSectionDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\CreateAccountForm.resx">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\ReturnSaleForm.resx">
+      <DependentUpon>ReturnSaleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\SaleDayByDayReport.resx">
       <DependentUpon>SaleDayByDayReport.cs</DependentUpon>

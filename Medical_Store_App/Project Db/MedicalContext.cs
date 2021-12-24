@@ -16,5 +16,6 @@ namespace Medical_Store_App.Project_Db
         public DbSet<PurchaseInfo> PurchaseInfos { get; set; }
         public DbSet<PurchaseItem> PurchaseItems { get; set; }
         public DbSet<SaleReturn> SaleReturns { get; set; }
+        public DbSet<ReturnInfo> ReturnInfos { get; set; }
     }
 }
