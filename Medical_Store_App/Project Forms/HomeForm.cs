@@ -95,7 +95,7 @@ namespace Medical_Store_App.Project_Forms
 
         private void saleReturnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReturnSaleForm returnSaleForm = new ReturnSaleForm(); ;
+            ReturnSaleForm returnSaleForm = new ReturnSaleForm(userID); ;
             if (ActiveMdiChild != null)
             {
                 ActiveMdiChild.Close();

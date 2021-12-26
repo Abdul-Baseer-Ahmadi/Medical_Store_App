@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,16 @@ namespace Medical_Store_App.Project_Forms
     public partial class ReturnSaleForm : Form
     {
         MedicalContext db;
+        ReturnInfo returnInfo = new ReturnInfo();
+        SaleReturn saleItemReturn = new SaleReturn();
         long returnSaleId;
-        public ReturnSaleForm()
+        int userID, totalReturnItems;
+        float wholeSaleReturn = 0;
+        public ReturnSaleForm(int userId)
         {
             InitializeComponent();
             db = new MedicalContext();
+            userID = userId;
         }
 
         private void ReturnSaleForm_Load(object sender, EventArgs e)
@@ -43,13 +49,83 @@ namespace Medical_Store_App.Project_Forms
                     else
                     {
                         txtReturnSaleId.Text = (returnRecord.Return_Id + 1).ToString();
+                        returnInfo.Return_Id = Convert.ToInt64(txtReturnSaleId.Text);
+                        returnInfo.Return_Date = dateTimePickerReturnSale.Value.Date;
+                        returnInfo.User_Id = userID;
+                        db.ReturnInfos.Add(returnInfo);
+                        db.SaveChanges();
+                        MessageBox.Show("Id Created.");
                     }
-                    //txtReturnSaleId.Text = Convert.ToInt64(returnSaleId)+ 1.ToString();
                 }
             }
             catch (Exception) { }
         }
+        //This function is used to the return items.
+        private void SaveReturnItem()
+        {
+            try
+            {
+                saleItemReturn.Return_Id = Convert.ToInt64(txtReturnSaleId.Text);
+                saleItemReturn.Product_Id = Convert.ToInt64(comboMedicine.SelectedValue);
+                saleItemReturn.Unit_Price = Convert.ToSingle(txtUnitPrice.Text);
+                saleItemReturn.Quantity = Convert.ToInt32(txtQuantity.Text);
+                saleItemReturn.Total_Amount = Convert.ToSingle(lblTotalAmountValue.Text);
+                saleItemReturn.Return_Date = dateTimePickerReturnSale.Value.Date;
+                db.SaleReturns.Add(saleItemReturn);
+                db.SaveChanges();
+                UpdateReturnInfo();
+                FillDataGridView(Convert.ToInt64(txtReturnSaleId.Text));
+            }
+           catch (Exception) { }
+        }
+        //This function is used to update the returnInfo.
+        private void UpdateReturnInfo()
+        {
+            try
+            {
+                wholeSaleReturn += Convert.ToSingle(lblTotalAmountValue.Text);
+                totalReturnItems += 1;
+                lblReturnAmountValue.Text = wholeSaleReturn.ToString();
+                lblTotalItemsValue.Text = totalReturnItems.ToString();
 
+                var updateReturnInfo = db.ReturnInfos.Where(i => i.Return_Id == returnSaleId).SingleOrDefault();
+                updateReturnInfo.Total_items = totalReturnItems;
+                updateReturnInfo.Total_Amount = wholeSaleReturn;
+                updateReturnInfo.Return_Date = dateTimePickerReturnSale.Value.Date;
+                db.Entry(updateReturnInfo).State = EntityState.Modified;
+                db.SaveChanges();
+
+            }
+            catch (Exception) { }
+        }
+        //This function is used to fill the data grid view.
+        private void FillDataGridView(long returnId)
+        {
+            var saleReturn = (from returns in db.SaleReturns.Where(i => i.Return_Id == returnId)
+                              select new
+                              {
+                                  returns.Return_Id,
+                                  returns.Stock_Products.Code,
+                                  returns.Stock_Products.Name,
+                                  returns.Unit_Price,
+                                  returns.Quantity,
+                                  returns.Total_Amount,
+                                  returns.Return_Date,
+                              }).ToList();
+            dataGridViewSaleReturn.DataSource = saleReturn;
+        }
+        private void CheckDigit(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+              && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
         private void txtCode_TextChanged(object sender, EventArgs e)
         {
             try
@@ -100,5 +176,21 @@ namespace Medical_Store_App.Project_Forms
             }
             catch (Exception) { }
         }
+
+        private void txtUnitPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckDigit(sender, e);
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckDigit(sender, e);
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            SaveReturnItem();
+        }
+
     }
 }
