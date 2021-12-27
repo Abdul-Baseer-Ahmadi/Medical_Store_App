@@ -103,6 +103,15 @@ namespace Medical_Store_App.Project_Forms
             }
             catch (Exception) { }
         }
+        //This Function is used to update the stock after return the product.
+        private void UpdateStockAfterReturn()
+        {
+            try
+            {
+
+            }
+            catch (Exception) { }
+        }
         //This function is used to fill the data grid view.
         private void FillDataGridView(long returnId)
         {
