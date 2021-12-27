@@ -17,7 +17,7 @@ namespace Medical_Store_App.Project_Db
         [DefaultValue(0)]
         public int Total_items { get; set; }
         [DefaultValue(0)]
-        public float Total_Amount { get; set; }
+        public float Return_Amount { get; set; }
         public DateTime Return_Date { get; set; }
         [ForeignKey("User")]
         public int User_Id { get; set; }

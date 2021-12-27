@@ -29,7 +29,7 @@ namespace Medical_Store_App.Project_Forms
 
         private void ReturnSaleForm_Load(object sender, EventArgs e)
         {
-            try
+            //try
             {
                 // TODO: This line of code loads data into the 'medicalStoreDataSet1.Stocks' table. You can move, or remove it, as needed.
                 this.stocksTableAdapter.Fill(this.medicalStoreDataSet1.Stocks);
@@ -38,11 +38,16 @@ namespace Medical_Store_App.Project_Forms
                 if(returnSaleId == 0)
                 {
                     txtReturnSaleId.Text = (returnSaleId + 1).ToString();
+                    returnInfo.Return_Id = Convert.ToInt64(txtReturnSaleId.Text);
+                    returnInfo.Return_Date = dateTimePickerReturnSale.Value.Date;
+                    returnInfo.User_Id = userID;
+                    db.ReturnInfos.Add(returnInfo);
+                    db.SaveChanges();
                 }
                 else
                 {
                     var returnRecord = db.ReturnInfos.Where(i => i.Return_Id == returnSaleId).SingleOrDefault();
-                    if(returnRecord.Total_Amount == 0)
+                    if(returnRecord.Return_Amount == 0)
                     {
                         txtReturnSaleId.Text = (returnRecord.Return_Id).ToString();
                     }
@@ -58,12 +63,12 @@ namespace Medical_Store_App.Project_Forms
                     }
                 }
             }
-            catch (Exception) { }
+            //catch (Exception) { }
         }
         //This function is used to the return items.
         private void SaveReturnItem()
         {
-            try
+            //try
             {
                 saleItemReturn.Return_Id = Convert.ToInt64(txtReturnSaleId.Text);
                 saleItemReturn.Product_Id = Convert.ToInt64(comboMedicine.SelectedValue);
@@ -76,7 +81,7 @@ namespace Medical_Store_App.Project_Forms
                 UpdateReturnInfo();
                 FillDataGridView(Convert.ToInt64(txtReturnSaleId.Text));
             }
-           catch (Exception) { }
+           //catch (Exception) { }
         }
         //This function is used to update the returnInfo.
         private void UpdateReturnInfo()
@@ -90,7 +95,7 @@ namespace Medical_Store_App.Project_Forms
 
                 var updateReturnInfo = db.ReturnInfos.Where(i => i.Return_Id == returnSaleId).SingleOrDefault();
                 updateReturnInfo.Total_items = totalReturnItems;
-                updateReturnInfo.Total_Amount = wholeSaleReturn;
+                updateReturnInfo.Return_Amount = wholeSaleReturn;
                 updateReturnInfo.Return_Date = dateTimePickerReturnSale.Value.Date;
                 db.Entry(updateReturnInfo).State = EntityState.Modified;
                 db.SaveChanges();
