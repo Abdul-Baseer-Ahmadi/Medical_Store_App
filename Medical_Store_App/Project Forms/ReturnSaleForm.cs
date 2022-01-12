@@ -19,7 +19,7 @@ namespace Medical_Store_App.Project_Forms
         SaleReturn saleItemReturn = new SaleReturn();
         long returnSaleId;
         int userID, totalReturnItems;
-        float wholeSaleReturn = 0;
+        float wholeSaleReturn = 0, profit;
         public ReturnSaleForm(int userId)
         {
             InitializeComponent();
@@ -99,7 +99,7 @@ namespace Medical_Store_App.Project_Forms
                 updateReturnInfo.Return_Date = dateTimePickerReturnSale.Value.Date;
                 db.Entry(updateReturnInfo).State = EntityState.Modified;
                 db.SaveChanges();
-
+                UpdateStockAfterReturn();
             }
             catch (Exception) { }
         }
@@ -108,7 +108,12 @@ namespace Medical_Store_App.Project_Forms
         {
             try
             {
-
+                var proCode = txtCode.Text;
+                var updateStock = db.Stocks.Where(s => s.Code == proCode).SingleOrDefault();
+                updateStock.Quantity += Convert.ToInt32(txtQuantity.Text);
+                updateStock.Total_Amount += Convert.ToSingle(lblTotalAmountValue.Text) - profit;
+                db.Entry(updateStock).State = EntityState.Modified;
+                db.SaveChanges();
             }
             catch (Exception) { }
         }
@@ -155,6 +160,7 @@ namespace Medical_Store_App.Project_Forms
                     comboMedicine.SelectedValue = searchRecord.Id;
                     txtUnitPrice.Text = searchRecord.Sale_Price.ToString();
                     lblItemName.Text = searchRecord.Name;
+                    profit = searchRecord.Profit;
                 }
             }
             catch (Exception) { }
@@ -171,6 +177,7 @@ namespace Medical_Store_App.Project_Forms
                     txtCode.Text = da.Code;
                     lblItemName.Text = comboMedicine.Text;
                     txtUnitPrice.Text = txtUnitPrice.Text;
+                    profit = da.Profit;
                 }
             }
             catch (Exception) { }
