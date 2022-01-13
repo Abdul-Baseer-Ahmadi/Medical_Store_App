@@ -162,6 +162,10 @@
     <Compile Include="Migrations\202112271200132_changeTotalAmountToReturnAmount.designer.cs">
       <DependentUpon>202112271200132_changeTotalAmountToReturnAmount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201122106307_changeTotalAmountToDefaultValue.cs" />
+    <Compile Include="Migrations\202201122106307_changeTotalAmountToDefaultValue.designer.cs">
+      <DependentUpon>202201122106307_changeTotalAmountToDefaultValue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Db\MedicalContext.cs" />
     <Compile Include="Project Db\PurchaseInfo.cs" />
@@ -320,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112271200132_changeTotalAmountToReturnAmount.resx">
       <DependentUpon>202112271200132_changeTotalAmountToReturnAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201122106307_changeTotalAmountToDefaultValue.resx">
+      <DependentUpon>202201122106307_changeTotalAmountToDefaultValue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\AllSectionDetails.resx">
       <DependentUpon>AllSectionDetails.cs</DependentUpon>
