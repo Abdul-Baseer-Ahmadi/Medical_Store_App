@@ -51,6 +51,7 @@ namespace Medical_Store_App.Project_Forms
             this.Controls.Add(this.crystalReportViewerSaleDayByDay);
             this.Name = "SaleDayByDayReport";
             this.Text = "Sale Report";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SaleDayByDayReport_Load);
             this.ResumeLayout(false);
 

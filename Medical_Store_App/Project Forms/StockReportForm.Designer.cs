@@ -51,6 +51,7 @@ namespace Medical_Store_App.Project_Forms
             this.Controls.Add(this.crystalReportViewerStockHistory);
             this.Name = "StockReportForm";
             this.Text = "StockReportForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.StockReportForm_Load);
             this.ResumeLayout(false);
 

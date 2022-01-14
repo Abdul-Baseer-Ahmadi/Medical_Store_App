@@ -554,6 +554,7 @@ namespace Medical_Store_App.Project_Forms
             this.txtSearchByItemCode.Name = "txtSearchByItemCode";
             this.txtSearchByItemCode.Size = new System.Drawing.Size(100, 20);
             this.txtSearchByItemCode.TabIndex = 42;
+            this.txtSearchByItemCode.TextChanged += new System.EventHandler(this.txtSearchByItemCode_TextChanged);
             // 
             // btnLoadAllPurchase
             // 

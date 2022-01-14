@@ -40,7 +40,6 @@ namespace Medical_Store_App.Project_Forms
                 purchaseId = db.PurchaseInfos.Select(s => s.Purchase_Id).DefaultIfEmpty().Max();
                 txtPurchaseId.Text = (purchaseId + 1).ToString();
                 MessageBox.Show(purchaseId.ToString());
-                txtBill.Focus();
             }
             catch (Exception) { }
         }
@@ -63,6 +62,7 @@ namespace Medical_Store_App.Project_Forms
                 db.PurchaseItems.Add(purchaseItems);
                 db.SaveChanges();
                 FillDataGridView();
+                UpdateStockAfterPurchase(txtCode.Text);
                 MessageBox.Show("Record Inserted Successfully.");
             }
             else
@@ -89,6 +89,26 @@ namespace Medical_Store_App.Project_Forms
                                      item.Expiry_Date
                                  }).ToList();
             dGridViewPurchaseHistory.DataSource = purchaseItems;
+        }
+        //This function is used to update the stock after purchase.
+        private void UpdateStockAfterPurchase(string itemCode)
+        {
+            var purchaseItem = db.Stocks.Where(c => c.Code == itemCode).SingleOrDefault();
+            purchaseItem.Quantity = Convert.ToInt32(lblNewStockValue.Text);
+            purchaseItem.Purchase_Price = Convert.ToSingle(txtPurchasePrice.Text);
+            purchaseItem.Sale_Price = Convert.ToSingle(txtSalePrice.Text);
+            purchaseItem.Total_Amount = Convert.ToSingle(txtPurchasePrice.Text) * Convert.ToInt32(lblNewStockValue.Text);
+            if(txtProfit.Text != "")
+            {
+                purchaseItem.Profit = (Convert.ToSingle(txtProfit.Text) * Convert.ToSingle(txtPurchasePrice.Text)) / 100;
+                
+            }
+            else
+            {
+                purchaseItem.Profit = purchaseItem.Profit;
+            }
+            db.Entry(purchaseItem).State = EntityState.Modified;
+            db.SaveChanges();
         }
         private void comboMedicine_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -155,21 +175,26 @@ namespace Medical_Store_App.Project_Forms
                 txtPurchasePrice.Text = stockHistory.Purchase_Price.ToString();
                 txtSalePrice.Text = stockHistory.Sale_Price.ToString();
                 lblCurrentStockQuantity.Text = stockHistory.Quantity.ToString();
+                
             }
         }
 
         private void txtProfit_TextChanged(object sender, EventArgs e)
         {
-            int profitPercentage = Convert.ToInt32(txtProfit.Text);
-            float purchasePrice = Convert.ToSingle(txtPurchasePrice.Text);
-            if(profitPercentage <= 0)
+            if (txtProfit.Text != "")
             {
-                
-            }
-            else
-            {
-                caculatedProfit = (purchasePrice * profitPercentage) / 100;
-                txtSalePrice.Text = (purchasePrice + caculatedProfit).ToString();
+                int profitPercentage = Convert.ToInt32(txtProfit.Text);
+                float purchasePrice = Convert.ToSingle(txtPurchasePrice.Text);
+
+                if (profitPercentage <= 0)
+                {
+
+                }
+                else
+                {
+                    caculatedProfit = (purchasePrice * profitPercentage) / 100;
+                    txtSalePrice.Text = (purchasePrice + caculatedProfit).ToString();
+                }
             }
         }
 
@@ -220,6 +245,25 @@ namespace Medical_Store_App.Project_Forms
             {
                 FillDataGridView();
             }
+        }
+
+        private void txtSearchByItemCode_TextChanged(object sender, EventArgs e)
+       {
+            var purchaseItemSearch = (from item in db.PurchaseItems.Where(i => i.Item_Stock.Code == txtSearchByItemCode.Text)
+                                      select new
+                                      {
+                                          item.Id,
+                                          item.Item_Stock.Name,
+                                          item.Quantity,
+                                          item.Purchase_Price,
+                                          item.Item_Stock.Profit,
+                                          item.Sale_Price,
+                                          item.Total_Amount,
+                                          item.Purchase_Date,
+                                          item.Mfg_Date,
+                                          item.Expiry_Date
+                                      }).ToList();
+            dGridViewPurchaseHistory.DataSource = purchaseItemSearch;
         }
     }
 }
