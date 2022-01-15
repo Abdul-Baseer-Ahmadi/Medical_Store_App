@@ -30,26 +30,23 @@ namespace Medical_Store_App.Project_Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpBoxCreateAccount = new System.Windows.Forms.GroupBox();
-            this.lblName = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnCreateAccount = new System.Windows.Forms.Button();
+            this.comboRole = new System.Windows.Forms.ComboBox();
+            this.lblRole = new System.Windows.Forms.Label();
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
             this.lblConfirmPass = new System.Windows.Forms.Label();
-            this.lblRole = new System.Windows.Forms.Label();
-            this.comboRole = new System.Windows.Forms.ComboBox();
-            this.btnCreateAccount = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
             this.grpBoxUserList = new System.Windows.Forms.GroupBox();
             this.dGrdViewUserList = new System.Windows.Forms.DataGridView();
-            this.medicalStoreDataSet = new Medical_Store_App.MedicalStoreDataSet();
-            this.userLoginsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userLoginsTableAdapter = new Medical_Store_App.MedicalStoreDataSetTableAdapters.UserLoginsTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,13 +54,14 @@ namespace Medical_Store_App.Project_Forms
             this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEdit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.btnDelete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.userLoginsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.medicalStoreDataSet = new Medical_Store_App.MedicalStoreDataSet();
+            this.userLoginsTableAdapter = new Medical_Store_App.MedicalStoreDataSetTableAdapters.UserLoginsTableAdapter();
             this.grpBoxCreateAccount.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpBoxUserList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGrdViewUserList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicalStoreDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userLoginsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicalStoreDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxCreateAccount
@@ -80,48 +78,68 @@ namespace Medical_Store_App.Project_Forms
             this.grpBoxCreateAccount.Controls.Add(this.txtUserName);
             this.grpBoxCreateAccount.Controls.Add(this.lblName);
             this.grpBoxCreateAccount.ForeColor = System.Drawing.Color.Black;
-            this.grpBoxCreateAccount.Location = new System.Drawing.Point(1, 85);
+            this.grpBoxCreateAccount.Location = new System.Drawing.Point(1, 12);
             this.grpBoxCreateAccount.Name = "grpBoxCreateAccount";
             this.grpBoxCreateAccount.Size = new System.Drawing.Size(284, 369);
             this.grpBoxCreateAccount.TabIndex = 0;
             this.grpBoxCreateAccount.TabStop = false;
             this.grpBoxCreateAccount.Text = "Create Account";
             // 
-            // lblName
+            // txtId
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(4, 21);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(49, 17);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name";
+            this.txtId.Location = new System.Drawing.Point(162, 15);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 10;
+            this.txtId.Visible = false;
             // 
-            // txtUserName
+            // btnCancel
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(7, 41);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(252, 23);
-            this.txtUserName.TabIndex = 1;
+            this.btnCancel.BackColor = System.Drawing.Color.Crimson;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(6, 294);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(252, 33);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtPassword
+            // btnCreateAccount
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(7, 95);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(252, 23);
-            this.txtPassword.TabIndex = 3;
+            this.btnCreateAccount.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateAccount.ForeColor = System.Drawing.Color.White;
+            this.btnCreateAccount.Location = new System.Drawing.Point(7, 255);
+            this.btnCreateAccount.Name = "btnCreateAccount";
+            this.btnCreateAccount.Size = new System.Drawing.Size(252, 33);
+            this.btnCreateAccount.TabIndex = 8;
+            this.btnCreateAccount.Text = "Create Account";
+            this.btnCreateAccount.UseVisualStyleBackColor = false;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
-            // lblPassword
+            // comboRole
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(4, 75);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(77, 17);
-            this.lblPassword.TabIndex = 2;
-            this.lblPassword.Text = "Password";
+            this.comboRole.FormattingEnabled = true;
+            this.comboRole.Items.AddRange(new object[] {
+            "Admin",
+            "Pharmacist"});
+            this.comboRole.Location = new System.Drawing.Point(7, 207);
+            this.comboRole.Name = "comboRole";
+            this.comboRole.Size = new System.Drawing.Size(252, 21);
+            this.comboRole.TabIndex = 7;
+            this.comboRole.Text = "--Select Role--";
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRole.Location = new System.Drawing.Point(4, 186);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(41, 17);
+            this.lblRole.TabIndex = 6;
+            this.lblRole.Text = "Role";
             // 
             // txtConfirmPass
             // 
@@ -141,68 +159,46 @@ namespace Medical_Store_App.Project_Forms
             this.lblConfirmPass.TabIndex = 4;
             this.lblConfirmPass.Text = "Confirm Password";
             // 
-            // lblRole
+            // txtPassword
             // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRole.Location = new System.Drawing.Point(4, 186);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(41, 17);
-            this.lblRole.TabIndex = 6;
-            this.lblRole.Text = "Role";
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(7, 95);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(252, 23);
+            this.txtPassword.TabIndex = 3;
             // 
-            // comboRole
+            // lblPassword
             // 
-            this.comboRole.FormattingEnabled = true;
-            this.comboRole.Items.AddRange(new object[] {
-            "Admin",
-            "Pharmacist"});
-            this.comboRole.Location = new System.Drawing.Point(7, 207);
-            this.comboRole.Name = "comboRole";
-            this.comboRole.Size = new System.Drawing.Size(252, 21);
-            this.comboRole.TabIndex = 7;
-            this.comboRole.Text = "--Select Role--";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(4, 75);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(77, 17);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "Password";
             // 
-            // btnCreateAccount
+            // txtUserName
             // 
-            this.btnCreateAccount.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateAccount.ForeColor = System.Drawing.Color.White;
-            this.btnCreateAccount.Location = new System.Drawing.Point(7, 255);
-            this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(252, 33);
-            this.btnCreateAccount.TabIndex = 8;
-            this.btnCreateAccount.Text = "Create Account";
-            this.btnCreateAccount.UseVisualStyleBackColor = false;
-            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
+            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Location = new System.Drawing.Point(7, 41);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(252, 23);
+            this.txtUserName.TabIndex = 1;
             // 
-            // btnCancel
+            // lblName
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Crimson;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(6, 294);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(252, 33);
-            this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1370, 65);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(4, 21);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(49, 17);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name";
             // 
             // grpBoxUserList
             // 
             this.grpBoxUserList.Controls.Add(this.dGrdViewUserList);
-            this.grpBoxUserList.Location = new System.Drawing.Point(291, 85);
+            this.grpBoxUserList.Location = new System.Drawing.Point(291, 12);
             this.grpBoxUserList.Name = "grpBoxUserList";
             this.grpBoxUserList.Size = new System.Drawing.Size(1067, 623);
             this.grpBoxUserList.TabIndex = 2;
@@ -217,14 +213,14 @@ namespace Medical_Store_App.Project_Forms
             this.dGrdViewUserList.AllowUserToResizeRows = false;
             this.dGrdViewUserList.AutoGenerateColumns = false;
             this.dGrdViewUserList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dGrdViewUserList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dGrdViewUserList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dGrdViewUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGrdViewUserList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -235,44 +231,30 @@ namespace Medical_Store_App.Project_Forms
             this.btnEdit,
             this.btnDelete});
             this.dGrdViewUserList.DataSource = this.userLoginsBindingSource;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGrdViewUserList.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGrdViewUserList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dGrdViewUserList.Location = new System.Drawing.Point(6, 21);
             this.dGrdViewUserList.MultiSelect = false;
             this.dGrdViewUserList.Name = "dGrdViewUserList";
             this.dGrdViewUserList.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dGrdViewUserList.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dGrdViewUserList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dGrdViewUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGrdViewUserList.Size = new System.Drawing.Size(1055, 593);
             this.dGrdViewUserList.TabIndex = 0;
             this.dGrdViewUserList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGrdViewUserList_CellContentClick);
-            // 
-            // medicalStoreDataSet
-            // 
-            this.medicalStoreDataSet.DataSetName = "MedicalStoreDataSet";
-            this.medicalStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // userLoginsBindingSource
-            // 
-            this.userLoginsBindingSource.DataMember = "UserLogins";
-            this.userLoginsBindingSource.DataSource = this.medicalStoreDataSet;
-            // 
-            // userLoginsTableAdapter
-            // 
-            this.userLoginsTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -325,33 +307,39 @@ namespace Medical_Store_App.Project_Forms
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseColumnTextForLinkValue = true;
             // 
-            // txtId
+            // userLoginsBindingSource
             // 
-            this.txtId.Location = new System.Drawing.Point(162, 15);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 20);
-            this.txtId.TabIndex = 10;
-            this.txtId.Visible = false;
+            this.userLoginsBindingSource.DataMember = "UserLogins";
+            this.userLoginsBindingSource.DataSource = this.medicalStoreDataSet;
             // 
-            // CreateAccount
+            // medicalStoreDataSet
+            // 
+            this.medicalStoreDataSet.DataSetName = "MedicalStoreDataSet";
+            this.medicalStoreDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // userLoginsTableAdapter
+            // 
+            this.userLoginsTableAdapter.ClearBeforeFill = true;
+            // 
+            // CreateAccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 711);
+            this.ControlBox = false;
             this.Controls.Add(this.grpBoxUserList);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.grpBoxCreateAccount);
-            this.Name = "CreateAccount";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "CreateAccountForm";
             this.Text = "CreateAccount";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.grpBoxCreateAccount.ResumeLayout(false);
             this.grpBoxCreateAccount.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grpBoxUserList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGrdViewUserList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medicalStoreDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userLoginsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicalStoreDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,7 +357,6 @@ namespace Medical_Store_App.Project_Forms
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnCreateAccount;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox grpBoxUserList;
         private System.Windows.Forms.DataGridView dGrdViewUserList;
         private MedicalStoreDataSet medicalStoreDataSet;

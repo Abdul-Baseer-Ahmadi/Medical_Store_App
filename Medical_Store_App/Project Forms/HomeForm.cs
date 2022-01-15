@@ -104,5 +104,29 @@ namespace Medical_Store_App.Project_Forms
             returnSaleForm.Dock = DockStyle.Fill;
             returnSaleForm.Show();
         }
+
+        private void userAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateAccountForm accountForm = new CreateAccountForm();
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            accountForm.MdiParent = this;
+            accountForm.Dock = DockStyle.Fill;
+            accountForm.Show();
+        }
+
+        private void companyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CompanyForm companyForm = new CompanyForm();
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            companyForm.MdiParent = this;
+            companyForm.Dock = DockStyle.Fill;
+            companyForm.Show();
+        }
     }
 }
