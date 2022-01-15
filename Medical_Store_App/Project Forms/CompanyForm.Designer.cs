@@ -237,6 +237,7 @@ namespace Medical_Store_App.Project_Forms
             this.dGridViewCompanyInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGridViewCompanyInfo.Size = new System.Drawing.Size(1036, 621);
             this.dGridViewCompanyInfo.TabIndex = 0;
+            this.dGridViewCompanyInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridViewCompanyInfo_CellContentClick);
             // 
             // Id
             // 

@@ -45,48 +45,31 @@ namespace Medical_Store_App.Project_Forms
         {
             try
             {
-                using (MedicalContext mdb = new MedicalContext())
+                if(txtId.Text == "")
                 {
-                    var id = txtId.Text;
-                    if (id == "")
-                    {
-                        var newUser = new UserLogin()
-                        {
-                            Name = txtUserName.Text,
-                            Password = txtPassword.Text,
-                            Confirm_Pass = txtConfirmPass.Text,
-                            Role = comboRole.Text
-                        };
-                        mdb.UserLogins.Add(newUser);
-                        mdb.SaveChanges();
-                        FillDataGridView();
-                        MessageBox.Show("Record Saved Successfully.");
-                        ClearTextBoxes();
-                    }
-                    else
-                    {
-                        var updateUser = new UserLogin()
-                        {
-                            Id = Convert.ToInt32(txtId.Text),
-                            Name = txtUserName.Text,
-                            Password = txtPassword.Text,
-                            Confirm_Pass = txtConfirmPass.Text,
-                            Role = comboRole.Text
-                        };
-                        mdb.Entry(updateUser).State = EntityState.Modified;
-                        mdb.SaveChanges();
-                        FillDataGridView();
-                        MessageBox.Show("Record Updated Successfully.");
-                        ClearTextBoxes();
-                    }
+                    user.Name = txtUserName.Text;
+                    user.Password = txtPassword.Text;
+                    user.Confirm_Pass = txtConfirmPass.Text;
+                    user.Role = comboRole.Text;
+                    db.UserLogins.Add(user);
                 }
+                else
+                {
+                    var id = Convert.ToInt32(txtId.Text);
+                    var userToUpdate = db.UserLogins.SingleOrDefault(i => i.Id == id);
+                    userToUpdate.Name = txtUserName.Text;
+                    userToUpdate.Password = txtPassword.Text;
+                    userToUpdate.Confirm_Pass = txtConfirmPass.Text;
+                    userToUpdate.Role = comboRole.Text;
+                    db.Entry(userToUpdate).State = EntityState.Modified;
+                }
+                db.SaveChanges();
+                FillDataGridView();
+                MessageBox.Show("Record Saved Successfully.");
+                ClearTextBoxes();
             }
-            catch (Exception)
-            {
-
-            }
+            catch (Exception) { }
         }
-
         private void dGrdViewUserList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

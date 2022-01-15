@@ -42,26 +42,24 @@ namespace Medical_Store_App.Project_Forms
         }
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            try
+            //try
             {
-                company.Company_Name = txtCompanyName.Text;
-                company.Address = txtAddress.Text;
-                company.Phone = txtPhone.Text;
-                company.Province = txtProvince.Text;
                 if(txtId.Text == "")
                 {
+                    company.Company_Name = txtCompanyName.Text;
+                    company.Address = txtAddress.Text;
+                    company.Phone = txtPhone.Text;
+                    company.Province = txtProvince.Text;
                     db.CompanyInfos.Add(company);
                 }
                 else
                 {
-                    var updateCompany = new CompanyInfo()
-                    {
-                        Id = Convert.ToInt32(txtId.Text),
-                        Company_Name = txtCompanyName.Text,
-                        Address = txtAddress.Text,
-                        Phone = txtPhone.Text,
-                        Province = txtProvince.Text
-                    };
+                    var id = Convert.ToInt32(txtId.Text);
+                    var updateCompany = db.CompanyInfos.Where(i => i.Id == id).SingleOrDefault();
+                    updateCompany.Company_Name = txtCompanyName.Text;
+                    updateCompany.Province = txtProvince.Text;
+                    updateCompany.Address = txtAddress.Text;
+                    updateCompany.Phone = txtPhone.Text;
                     db.Entry(updateCompany).State = EntityState.Modified;
                 }
                 db.SaveChanges();
@@ -69,7 +67,7 @@ namespace Medical_Store_App.Project_Forms
                 ClearTextBoxes();
                 MessageBox.Show("Saved Successfully.");
             }
-            catch (Exception) { }
+            //catch (Exception) { }
         }
 
         private void CompanyForm_Load(object sender, EventArgs e)
@@ -80,6 +78,32 @@ namespace Medical_Store_App.Project_Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ClearTextBoxes();
+        }
+
+        private void dGridViewCompanyInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var id = Convert.ToInt32(dGridViewCompanyInfo.CurrentRow.Cells[2].Value);
+            var company = db.CompanyInfos.SingleOrDefault(c => c.Id == id);
+            if (e.ColumnIndex == 0)
+            {
+                txtId.Text = company.Id.ToString();
+                txtCompanyName.Text = company.Company_Name;
+                txtProvince.Text = company.Province;
+                txtAddress.Text = company.Address;
+                txtPhone.Text = company.Phone;
+                btnCreateAccount.Text = "Update";
+            }
+            else if(e.ColumnIndex == 1)
+            {
+                if (DialogResult.Yes == MessageBox.Show("Do you want to delete " + company.Company_Name + " record?",
+                      "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                {
+                    db.CompanyInfos.Remove(company);
+                    db.SaveChanges();
+                    FillDataGridView();
+                    MessageBox.Show("Record Deleted");
+                }
+            }
         }
     }
 }
