@@ -174,9 +174,14 @@
     <Compile Include="Migrations\202201142107191_addProvinceToCompanyInfo.designer.cs">
       <DependentUpon>202201142107191_addProvinceToCompanyInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201161058410_createPaymentInfo.cs" />
+    <Compile Include="Migrations\202201161058410_createPaymentInfo.designer.cs">
+      <DependentUpon>202201161058410_createPaymentInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Db\CompanyInfo.cs" />
     <Compile Include="Project Db\MedicalContext.cs" />
+    <Compile Include="Project Db\PaymentInfo.cs" />
     <Compile Include="Project Db\PurchaseInfo.cs" />
     <Compile Include="Project Db\PurchaseItem.cs" />
     <Compile Include="Project Db\ReturnInfo.cs" />
@@ -348,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201142107191_addProvinceToCompanyInfo.resx">
       <DependentUpon>202201142107191_addProvinceToCompanyInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201161058410_createPaymentInfo.resx">
+      <DependentUpon>202201161058410_createPaymentInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\AllSectionDetails.resx">
       <DependentUpon>AllSectionDetails.cs</DependentUpon>

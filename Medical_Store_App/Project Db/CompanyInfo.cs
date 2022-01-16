@@ -13,5 +13,6 @@ namespace Medical_Store_App.Project_Db
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Province { get; set; }
+        public ICollection<PaymentInfo> Payment_Info { get; set; }
     }
 }

@@ -58,73 +58,76 @@ namespace Medical_Store_App.Project_Forms
         }
         private void SearchRecord(string searchItem)
         {
-            if(txtCode.Text != "")
+            if (txtCode.Text != "")
             {
                 var itemRecord = (from c in db.Stocks
-                              select new
-                              {
-                                  c.Id,
-                                  c.Code,
-                                  c.Name,
-                                  c.Type,
-                                  c.Purchase_Price,
-                                  c.Profit,
-                                  c.Sale_Price,
-                                  c.Quantity,
-                                  c.Total_Amount,
-                                  c.Mfg_Date,
-                                  c.Exp_Date
-                              }).Where(r => r.Code == searchItem).ToList();
+                                  select new
+                                  {
+                                      c.Id,
+                                      c.Code,
+                                      c.Name,
+                                      c.Type,
+                                      c.Purchase_Price,
+                                      c.Profit,
+                                      c.Sale_Price,
+                                      c.Quantity,
+                                      c.Total_Amount,
+                                      c.Mfg_Date,
+                                      c.Exp_Date
+                                  }).Where(r => r.Code == searchItem).ToList();
                 dGridViewStock.DataSource = itemRecord;
             }
             else
             {
                 FillDataGridView();
             }
-            
+
         }
         private void SaveUpdateItem()
         {
             var id = txtId.Text;
-
-            stock.Code = txtCode.Text;
-            stock.Name = txtName.Text;
-            stock.Type = txtType.Text;
-            stock.Purchase_Price = Convert.ToSingle(txtPurchasePrice.Text);
-            stock.Profit = (Convert.ToSingle(txtProfit.Text) * Convert.ToSingle(txtPurchasePrice.Text)) /100 ;
-            stock.Sale_Price = Convert.ToSingle(txtSalePrice.Text);
-            stock.Quantity = Convert.ToInt32(txtQuantity.Text);
-            stock.Total_Amount = Convert.ToSingle(lblTotalAmountValue.Text);
-            stock.Mfg_Date = dateTimePickerMfgDate.Value.Date;
-            stock.Exp_Date = dateTimePickerExpDate.Value.Date;
-            using (MedicalContext mdb = new MedicalContext())
+            if (id == "")
             {
-                if (id == "")
+                var code = txtCode.Text;
+                if (db.Stocks.Any(c => c.Code == code))
                 {
-                    var code = txtCode.Text;
-                    if (mdb.Stocks.Any(c => c.Code == code))
-                    {
-                        MessageBox.Show("Already Exist");
-                    }
-                    else
-                    {
-                        mdb.Stocks.Add(stock);
-                        mdb.SaveChanges();
-                        FillDataGridView();
-                        MessageBox.Show("Record saved successfully.");
-                        ClearTextBoxes();
-                    }
+                    MessageBox.Show("Already Exist");
                 }
                 else
                 {
-                    stock.Id = Convert.ToInt32(id);
-                    mdb.Entry(stock).State = EntityState.Modified;
-                    mdb.SaveChanges();
-                    FillDataGridView();
-                    ClearTextBoxes();
-                    MessageBox.Show("Record updated successfully.");
+                    stock.Code = txtCode.Text;
+                    stock.Name = txtName.Text;
+                    stock.Type = txtType.Text;
+                    stock.Purchase_Price = Convert.ToSingle(txtPurchasePrice.Text);
+                    stock.Profit = (Convert.ToSingle(txtProfit.Text) * Convert.ToSingle(txtPurchasePrice.Text)) / 100;
+                    stock.Sale_Price = Convert.ToSingle(txtSalePrice.Text);
+                    stock.Quantity = Convert.ToInt32(txtQuantity.Text);
+                    stock.Total_Amount = Convert.ToSingle(lblTotalAmountValue.Text);
+                    stock.Mfg_Date = dateTimePickerMfgDate.Value.Date;
+                    stock.Exp_Date = dateTimePickerExpDate.Value.Date;
+                    db.Stocks.Add(stock);
                 }
             }
+            else
+            {
+                var stockId = Convert.ToInt64(id);
+                var stockRecord = db.Stocks.SingleOrDefault(s => s.Id == stockId);
+                stockRecord.Code = txtCode.Text;
+                stockRecord.Name = txtName.Text;
+                stockRecord.Type = txtType.Text;
+                stockRecord.Purchase_Price = Convert.ToSingle(txtPurchasePrice.Text);
+                stockRecord.Profit = (Convert.ToSingle(txtProfit.Text) * Convert.ToSingle(txtPurchasePrice.Text)) / 100;
+                stockRecord.Sale_Price = Convert.ToSingle(txtSalePrice.Text);
+                stockRecord.Quantity = Convert.ToInt32(txtQuantity.Text);
+                stockRecord.Total_Amount = Convert.ToSingle(lblTotalAmountValue.Text);
+                stockRecord.Mfg_Date = dateTimePickerMfgDate.Value.Date;
+                stockRecord.Exp_Date = dateTimePickerExpDate.Value.Date;
+                db.Entry(stockRecord).State = EntityState.Modified;
+            }
+            db.SaveChanges();
+            FillDataGridView();
+            ClearTextBoxes();
+            MessageBox.Show("Record Saved successfully.");
         }
         private void Stock_Load(object sender, EventArgs e)
         {
@@ -184,11 +187,10 @@ namespace Medical_Store_App.Project_Forms
                 }
                 else if (e.ColumnIndex == 2)
                 {
-                    var deleteItem = db.Stocks.SingleOrDefault(c => c.Id == id);
-                    if (DialogResult.Yes == MessageBox.Show("Do you want to delete " + deleteItem.Name + " record?",
+                    if (DialogResult.Yes == MessageBox.Show("Do you want to delete " + data.Name + " record?",
                       "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                     {
-                        db.Stocks.Remove(deleteItem);
+                        db.Stocks.Remove(data);
                         db.SaveChanges();
                         FillDataGridView();
                         MessageBox.Show("Record Deleted");
@@ -203,7 +205,8 @@ namespace Medical_Store_App.Project_Forms
 
         private void txtProfit_TextChanged(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 if (txtProfit.Text != "")
                 {
                     var profit = Convert.ToSingle(txtProfit.Text);
@@ -239,7 +242,6 @@ namespace Medical_Store_App.Project_Forms
 
         private void txtPurchasePrice_TextChanged(object sender, EventArgs e)
         {
-            
             try
             {
                 var totalAmount = Convert.ToSingle(txtPurchasePrice.Text) * Convert.ToInt32(txtQuantity.Text);

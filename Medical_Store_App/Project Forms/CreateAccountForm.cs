@@ -74,10 +74,10 @@ namespace Medical_Store_App.Project_Forms
         {
             try
             {
-                if(e.ColumnIndex == 5)
+                var id = Convert.ToInt32(dGrdViewUserList.CurrentRow.Cells[0].Value);
+                var user = db.UserLogins.SingleOrDefault(r => r.Id == id);
+                if (e.ColumnIndex == 5)
                 {
-                    var id = Convert.ToInt32(dGrdViewUserList.CurrentRow.Cells[0].Value);
-                    var user = db.UserLogins.SingleOrDefault(r => r.Id == id);
                     txtId.Text = user.Id.ToString();
                     txtUserName.Text = user.Name.ToString();
                     txtPassword.Text = user.Password.ToString();
@@ -87,24 +87,18 @@ namespace Medical_Store_App.Project_Forms
                 }
                 else if(e.ColumnIndex == 6)
                 {
-                    int id = Convert.ToInt32(dGrdViewUserList.CurrentRow.Cells[0].Value);
-                    var deleteUser = db.UserLogins.SingleOrDefault(c => c.Id == id);
-                    if (DialogResult.Yes == MessageBox.Show("Do you want to delete " + deleteUser.Name +" record?",
+                    if (DialogResult.Yes == MessageBox.Show("Do you want to delete " + user.Name +" record?",
                       "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                     {
-                        db.UserLogins.Remove(deleteUser);
+                        db.UserLogins.Remove(user);
                         db.SaveChanges();
                         FillDataGridView();
                         MessageBox.Show("Record Deleted");
                     }
                 }
             }
-            catch(Exception)
-            {
-
-            }
+            catch (Exception) { }
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ClearTextBoxes();
