@@ -17,6 +17,7 @@ namespace Medical_Store_App.Project_Db
         public float Given_Amout { get; set; }
         public string Raseed_No { get; set; }
         public float Remaining_Amount { get; set; }
+        public int Staus { get; set; }
         public DateTime Pay_Date { get; set; }
         public CompanyInfo Company_Info { get; set; }
 

@@ -101,7 +101,7 @@ namespace Medical_Store_App.Project_Forms
             this.btnCancel.Location = new System.Drawing.Point(6, 294);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(252, 33);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -114,7 +114,7 @@ namespace Medical_Store_App.Project_Forms
             this.btnCreateAccount.Location = new System.Drawing.Point(7, 255);
             this.btnCreateAccount.Name = "btnCreateAccount";
             this.btnCreateAccount.Size = new System.Drawing.Size(252, 33);
-            this.btnCreateAccount.TabIndex = 8;
+            this.btnCreateAccount.TabIndex = 5;
             this.btnCreateAccount.Text = "Create Account";
             this.btnCreateAccount.UseVisualStyleBackColor = false;
             this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
@@ -128,7 +128,7 @@ namespace Medical_Store_App.Project_Forms
             this.comboRole.Location = new System.Drawing.Point(7, 207);
             this.comboRole.Name = "comboRole";
             this.comboRole.Size = new System.Drawing.Size(252, 21);
-            this.comboRole.TabIndex = 7;
+            this.comboRole.TabIndex = 4;
             this.comboRole.Text = "--Select Role--";
             // 
             // lblRole
@@ -147,7 +147,7 @@ namespace Medical_Store_App.Project_Forms
             this.txtConfirmPass.Location = new System.Drawing.Point(7, 151);
             this.txtConfirmPass.Name = "txtConfirmPass";
             this.txtConfirmPass.Size = new System.Drawing.Size(252, 23);
-            this.txtConfirmPass.TabIndex = 5;
+            this.txtConfirmPass.TabIndex = 3;
             // 
             // lblConfirmPass
             // 
@@ -165,7 +165,7 @@ namespace Medical_Store_App.Project_Forms
             this.txtPassword.Location = new System.Drawing.Point(7, 95);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(252, 23);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.TabIndex = 2;
             // 
             // lblPassword
             // 
