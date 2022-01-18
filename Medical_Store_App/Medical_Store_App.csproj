@@ -187,6 +187,14 @@
     <Compile Include="Migrations\202201171304313_addStusToPaymentInfo.designer.cs">
       <DependentUpon>202201171304313_addStusToPaymentInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201172055463_createTestInfo.cs" />
+    <Compile Include="Migrations\202201172055463_createTestInfo.designer.cs">
+      <DependentUpon>202201172055463_createTestInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201172119202_addPriceToTestInfo.cs" />
+    <Compile Include="Migrations\202201172119202_addPriceToTestInfo.designer.cs">
+      <DependentUpon>202201172119202_addPriceToTestInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Db\CompanyInfo.cs" />
     <Compile Include="Project Db\MedicalContext.cs" />
@@ -198,7 +206,14 @@
     <Compile Include="Project Db\SaleReturn.cs" />
     <Compile Include="Project Db\SoldProduct.cs" />
     <Compile Include="Project Db\Stock.cs" />
+    <Compile Include="Project Db\TestInfo.cs" />
     <Compile Include="Project Db\UserLogin.cs" />
+    <Compile Include="Project Forms\AddTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\AddTestForm.Designer.cs">
+      <DependentUpon>AddTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Project Forms\AllSectionDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +383,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201171304313_addStusToPaymentInfo.resx">
       <DependentUpon>202201171304313_addStusToPaymentInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201172055463_createTestInfo.resx">
+      <DependentUpon>202201172055463_createTestInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201172119202_addPriceToTestInfo.resx">
+      <DependentUpon>202201172119202_addPriceToTestInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\AddTestForm.resx">
+      <DependentUpon>AddTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\AllSectionDetails.resx">
       <DependentUpon>AllSectionDetails.cs</DependentUpon>

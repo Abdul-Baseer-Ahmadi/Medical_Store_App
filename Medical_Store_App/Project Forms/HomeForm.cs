@@ -128,5 +128,17 @@ namespace Medical_Store_App.Project_Forms
             companyForm.Dock = DockStyle.Fill;
             companyForm.Show();
         }
+
+        private void addTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTestForm testForm = new AddTestForm();
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            testForm.MdiParent = this;
+            testForm.Dock = DockStyle.Fill;
+            testForm.Show();
+        }
     }
 }
