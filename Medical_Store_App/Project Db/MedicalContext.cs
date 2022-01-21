@@ -20,5 +20,7 @@ namespace Medical_Store_App.Project_Db
         public DbSet<CompanyInfo> CompanyInfos { get; set; }
         public DbSet<PaymentInfo> PaymentInfos { get; set; }
         public DbSet<TestInfo> TestInfos { get; set; }
+        public DbSet<PatientInfo> PatientInfos { get; set; }
+        public DbSet<LabPayment> LabPayments { get; set; }
     }
 }

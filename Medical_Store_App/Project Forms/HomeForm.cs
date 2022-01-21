@@ -140,5 +140,17 @@ namespace Medical_Store_App.Project_Forms
             testForm.Dock = DockStyle.Fill;
             testForm.Show();
         }
+
+        private void paymentToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PatientLabForm labForm = new PatientLabForm();
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            labForm.MdiParent = this;
+            labForm.Dock = DockStyle.Fill;
+            labForm.Show();
+        }
     }
 }

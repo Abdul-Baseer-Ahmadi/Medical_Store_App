@@ -91,6 +91,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalStoreDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MedicalStoreDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalStoreDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202112081536302_createUserLogin.cs" />
     <Compile Include="Migrations\202112081536302_createUserLogin.designer.cs">
       <DependentUpon>202112081536302_createUserLogin.cs</DependentUpon>
@@ -195,9 +200,43 @@
     <Compile Include="Migrations\202201172119202_addPriceToTestInfo.designer.cs">
       <DependentUpon>202201172119202_addPriceToTestInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201181837117_createPatientInfo.cs" />
+    <Compile Include="Migrations\202201181837117_createPatientInfo.designer.cs">
+      <DependentUpon>202201181837117_createPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201181847066_createLabPayment.cs" />
+    <Compile Include="Migrations\202201181847066_createLabPayment.designer.cs">
+      <DependentUpon>202201181847066_createLabPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201181856023_addVisitDateToLabPayment.cs" />
+    <Compile Include="Migrations\202201181856023_addVisitDateToLabPayment.designer.cs">
+      <DependentUpon>202201181856023_addVisitDateToLabPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201181857405_addVisitDateToPatientInfo.cs" />
+    <Compile Include="Migrations\202201181857405_addVisitDateToPatientInfo.designer.cs">
+      <DependentUpon>202201181857405_addVisitDateToPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201181925578_addGenderToPatientInfo.cs" />
+    <Compile Include="Migrations\202201181925578_addGenderToPatientInfo.designer.cs">
+      <DependentUpon>202201181925578_addGenderToPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201181941577_changeGenderTypeInPatientInfo.cs" />
+    <Compile Include="Migrations\202201181941577_changeGenderTypeInPatientInfo.designer.cs">
+      <DependentUpon>202201181941577_changeGenderTypeInPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201182017000_addAddressTonPatientInfo.cs" />
+    <Compile Include="Migrations\202201182017000_addAddressTonPatientInfo.designer.cs">
+      <DependentUpon>202201182017000_addAddressTonPatientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201191508290_addTotalAmountToLabPayment.cs" />
+    <Compile Include="Migrations\202201191508290_addTotalAmountToLabPayment.designer.cs">
+      <DependentUpon>202201191508290_addTotalAmountToLabPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Project Db\CompanyInfo.cs" />
+    <Compile Include="Project Db\LabPayment.cs" />
     <Compile Include="Project Db\MedicalContext.cs" />
+    <Compile Include="Project Db\PatientInfo.cs" />
     <Compile Include="Project Db\PaymentInfo.cs" />
     <Compile Include="Project Db\PurchaseInfo.cs" />
     <Compile Include="Project Db\PurchaseItem.cs" />
@@ -231,6 +270,12 @@
     </Compile>
     <Compile Include="Project Forms\CreateAccountForm.Designer.cs">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project Forms\PatientLabForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project Forms\PatientLabForm.Designer.cs">
+      <DependentUpon>PatientLabForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Project Forms\ReturnSaleForm.cs">
       <SubType>Form</SubType>
@@ -390,6 +435,30 @@
     <EmbeddedResource Include="Migrations\202201172119202_addPriceToTestInfo.resx">
       <DependentUpon>202201172119202_addPriceToTestInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201181837117_createPatientInfo.resx">
+      <DependentUpon>202201181837117_createPatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201181847066_createLabPayment.resx">
+      <DependentUpon>202201181847066_createLabPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201181856023_addVisitDateToLabPayment.resx">
+      <DependentUpon>202201181856023_addVisitDateToLabPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201181857405_addVisitDateToPatientInfo.resx">
+      <DependentUpon>202201181857405_addVisitDateToPatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201181925578_addGenderToPatientInfo.resx">
+      <DependentUpon>202201181925578_addGenderToPatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201181941577_changeGenderTypeInPatientInfo.resx">
+      <DependentUpon>202201181941577_changeGenderTypeInPatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201182017000_addAddressTonPatientInfo.resx">
+      <DependentUpon>202201182017000_addAddressTonPatientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201191508290_addTotalAmountToLabPayment.resx">
+      <DependentUpon>202201191508290_addTotalAmountToLabPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\AddTestForm.resx">
       <DependentUpon>AddTestForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\CreateAccountForm.resx">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Forms\PatientLabForm.resx">
+      <DependentUpon>PatientLabForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Project Forms\ReturnSaleForm.resx">
       <DependentUpon>ReturnSaleForm.cs</DependentUpon>
@@ -440,6 +512,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\SaleReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -508,6 +581,17 @@
     <None Include="MedicalStoreDataSet4.xss">
       <DependentUpon>MedicalStoreDataSet4.xsd</DependentUpon>
     </None>
+    <None Include="MedicalStoreDataSet5.xsc">
+      <DependentUpon>MedicalStoreDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalStoreDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicalStoreDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicalStoreDataSet5.xss">
+      <DependentUpon>MedicalStoreDataSet5.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -524,6 +608,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\printImg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
