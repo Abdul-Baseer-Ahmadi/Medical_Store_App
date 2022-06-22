@@ -225,5 +225,13 @@ namespace Medical_Store_App.Project_Forms
             FillPatientTestDataGridView(testInfo.Patient_Id, date);
             TestPaymentCalculation(testInfo.Patient_Id, date);
         }
+
+        private void btnPrintTest_Click(object sender, EventArgs e)
+        {
+            var testPatId = Convert.ToInt64(txtPatientId.Text);
+            var testDate = dateTimePickerTestDate.Value;
+            TestReportForm testReportForm = new TestReportForm(testPatId, testDate);
+            testReportForm.Show();
+        }
     }
 }

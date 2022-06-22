@@ -56,7 +56,7 @@ namespace Medical_Store_App.Project_Forms
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTestId = new System.Windows.Forms.TextBox();
             this.grpBoxDetails = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPrintTest = new System.Windows.Forms.Button();
             this.lblPayableAmountValue = new System.Windows.Forms.Label();
             this.lblPayableAmountTitle = new System.Windows.Forms.Label();
             this.lblDiscountValue = new System.Windows.Forms.Label();
@@ -355,7 +355,7 @@ namespace Medical_Store_App.Project_Forms
             // grpBoxDetails
             // 
             this.grpBoxDetails.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.grpBoxDetails.Controls.Add(this.button2);
+            this.grpBoxDetails.Controls.Add(this.btnPrintTest);
             this.grpBoxDetails.Controls.Add(this.lblPayableAmountValue);
             this.grpBoxDetails.Controls.Add(this.lblPayableAmountTitle);
             this.grpBoxDetails.Controls.Add(this.lblDiscountValue);
@@ -372,15 +372,16 @@ namespace Medical_Store_App.Project_Forms
             this.grpBoxDetails.TabStop = false;
             this.grpBoxDetails.Text = "Details";
             // 
-            // button2
+            // btnPrintTest
             // 
-            this.button2.BackgroundImage = global::Medical_Store_App.Properties.Resources.printImg;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.Location = new System.Drawing.Point(1043, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(71, 35);
-            this.button2.TabIndex = 8;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPrintTest.BackgroundImage = global::Medical_Store_App.Properties.Resources.printImg;
+            this.btnPrintTest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrintTest.Location = new System.Drawing.Point(1043, 8);
+            this.btnPrintTest.Name = "btnPrintTest";
+            this.btnPrintTest.Size = new System.Drawing.Size(71, 35);
+            this.btnPrintTest.TabIndex = 8;
+            this.btnPrintTest.UseVisualStyleBackColor = true;
+            this.btnPrintTest.Click += new System.EventHandler(this.btnPrintTest_Click);
             // 
             // lblPayableAmountValue
             // 
@@ -776,7 +777,7 @@ namespace Medical_Store_App.Project_Forms
         private System.Windows.Forms.GroupBox grpBoxDetails;
         private System.Windows.Forms.Label lblDiscount;
         private System.Windows.Forms.TextBox txtDiscount;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPrintTest;
         private System.Windows.Forms.Label lblPayableAmountValue;
         private System.Windows.Forms.Label lblPayableAmountTitle;
         private System.Windows.Forms.Label lblDiscountValue;

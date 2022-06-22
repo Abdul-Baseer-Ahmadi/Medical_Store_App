@@ -51,6 +51,7 @@ namespace Medical_Store_App.Project_Forms
             this.Controls.Add(this.crystalReportViewerTestReport);
             this.Name = "TestReportForm";
             this.Text = "TestReportForm";
+            this.Load += new System.EventHandler(this.TestReportForm_Load);
             this.ResumeLayout(false);
 
         }
