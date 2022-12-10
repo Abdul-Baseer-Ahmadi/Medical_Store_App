@@ -323,7 +323,32 @@ namespace Medical_Store_App.Project_Forms
 
         private void dGridViewSaleHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            var proId = Convert.ToInt64(dGridViewSaleHistory.CurrentRow.Cells[1].Value);
+            var billId = Convert.ToUInt32(txtBill.Text);
+            var billRecord = db.SaleInfos.SingleOrDefault(s => s.Sale_Id == billId);
+            var soldItemToDelete = db.SoldProducts.SingleOrDefault(i => i.Id == proId);
+            var remainingSaleAmount = Convert.ToSingle(lblTotalAmountAllValue.Text) - soldItemToDelete.Total_Amount;
+            var noItems = Convert.ToInt32(lblTotalItemsValue.Text) - soldItemToDelete.Quantity;
+            var totalNetAmount = Convert.ToSingle(lblPayableAmountValue.Text) - soldItemToDelete.Total_Amount;
+            if(e.ColumnIndex == 0)
+            {
+                if(DialogResult.Yes == MessageBox.Show("Do you want to delete?", "Confirmation",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                {
+                    db.SoldProducts.Remove(soldItemToDelete);
+                    db.SaveChanges();
+                    lblTotalItemsValue.Text = noItems.ToString();
+                    lblTotalAmountAllValue.Text = remainingSaleAmount.ToString();
+                    lblPayableAmountValue.Text = totalNetAmount.ToString();
+                    billRecord.Total_Items = noItems;
+                    billRecord.Total_Amount = remainingSaleAmount;
+                    billRecord.Paid_Amount = totalNetAmount;
+                    db.Entry(billRecord).State = EntityState.Modified;
+                    db.SaveChanges();
+                    FillDataGridView(billId);
+                    MessageBox.Show("Deleted Successfully.");
+                }
+            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
