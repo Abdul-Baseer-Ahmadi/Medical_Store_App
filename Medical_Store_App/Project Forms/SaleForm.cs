@@ -32,16 +32,25 @@ namespace Medical_Store_App.Project_Forms
             {
                 // TODO: This line of code loads data into the 'medicalStoreDataSet1.Stocks' table. You can move, or remove it, as needed.
                 this.stocksTableAdapter.Fill(this.medicalStoreDataSet1.Stocks);
-                var bill = db.SaleInfos.OrderByDescending(s => s.Sale_Id).FirstOrDefault().Sale_Id;
-                var findRecord = db.SaleInfos.SingleOrDefault(i => i.Sale_Id == bill);
-                if (findRecord.Total_Amount == 0)
+                var bill = db.SaleInfos.Select(s => s.Sale_Id).DefaultIfEmpty().Max();
+
+                if (bill == 0)
                 {
-                    txtBill.Text = bill.ToString();
+                    txtBill.Text = (bill + 1).ToString();
+                    SaveSale();
                 }
                 else
                 {
-                    txtBill.Text = Convert.ToInt32(bill + 1).ToString();
-                    SaveSale();
+                    var findRecord = db.SaleInfos.SingleOrDefault(i => i.Sale_Id == bill);
+                    if (findRecord.Total_Amount == 0)
+                    {
+                        txtBill.Text = bill.ToString();
+                    }
+                    else
+                    {
+                        txtBill.Text = Convert.ToInt32(bill + 1).ToString();
+                        SaveSale();
+                    }
                 }
                 saleId = Convert.ToInt64(txtBill.Text);
                 this.KeyPreview = true;
@@ -133,7 +142,7 @@ namespace Medical_Store_App.Project_Forms
                     txtQuantity.Text = "1";
                 }
             }
-            
+
             catch (Exception) { }
         }
         //This function is used to update Stock Table Quantity.
@@ -188,7 +197,6 @@ namespace Medical_Store_App.Project_Forms
             }
             catch (Exception) { }
         }
-
         private void comboMedicine_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -308,7 +316,6 @@ namespace Medical_Store_App.Project_Forms
                                            c.Profit,
                                            c.Total_Amount,
                                            c.Sale_Date
-
                                        }).ToList();
                 dGridViewSaleHistory.DataSource = soldItemsRecord;
             }
@@ -326,18 +333,18 @@ namespace Medical_Store_App.Project_Forms
                 var startDate = dateTimePickerStartDate.Value.Date;
                 var endDate = dateTimePickerEndDate.Value.Date;
                 var allSoldItemsRecord = (from c in db.SoldProducts.Where(i => i.Sale_Date >= startDate && i.Sale_Date <= endDate)
-                                       select new
-                                       {
-                                           c.Id,
-                                           c.Sale_Id,
-                                           c.Sold_Product.Name,
-                                           c.Quantity,
-                                           c.Price,
-                                           c.Profit,
-                                           c.Total_Amount,
-                                           c.Sale_Date
+                                          select new
+                                          {
+                                              c.Id,
+                                              c.Sale_Id,
+                                              c.Sold_Product.Name,
+                                              c.Quantity,
+                                              c.Price,
+                                              c.Profit,
+                                              c.Total_Amount,
+                                              c.Sale_Date
 
-                                       }).ToList();
+                                          }).ToList();
                 dGridViewSaleHistory.DataSource = allSoldItemsRecord;
             }
             catch (Exception) { }
