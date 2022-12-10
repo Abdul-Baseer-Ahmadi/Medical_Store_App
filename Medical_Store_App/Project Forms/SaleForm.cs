@@ -320,6 +320,12 @@ namespace Medical_Store_App.Project_Forms
                 dGridViewSaleHistory.DataSource = soldItemsRecord;
             }
         }
+
+        private void dGridViewSaleHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
             var billId = Convert.ToInt64(txtBill.Text);

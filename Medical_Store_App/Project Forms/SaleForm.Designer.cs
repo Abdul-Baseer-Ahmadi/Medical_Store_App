@@ -97,7 +97,6 @@ namespace Medical_Store_App.Project_Forms
             this.TProfit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
             this.grpBoxSale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource)).BeginInit();
@@ -744,13 +743,13 @@ namespace Medical_Store_App.Project_Forms
             this.TProfit,
             this.TotalAmount,
             this.Date,
-            this.Edit,
             this.Delete});
             this.dGridViewSaleHistory.Location = new System.Drawing.Point(0, 20);
             this.dGridViewSaleHistory.Name = "dGridViewSaleHistory";
             this.dGridViewSaleHistory.ReadOnly = true;
             this.dGridViewSaleHistory.Size = new System.Drawing.Size(890, 494);
             this.dGridViewSaleHistory.TabIndex = 0;
+            this.dGridViewSaleHistory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGridViewSaleHistory_CellContentClick);
             // 
             // Id
             // 
@@ -815,15 +814,6 @@ namespace Medical_Store_App.Project_Forms
             this.Date.HeaderText = "Date";
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.FillWeight = 91.37056F;
-            this.Edit.HeaderText = "Edit";
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForLinkValue = true;
             // 
             // Delete
             // 
@@ -938,6 +928,7 @@ namespace Medical_Store_App.Project_Forms
         private System.Windows.Forms.Label lblExpiryDateTitle;
         private System.Windows.Forms.GroupBox grpBoxSaleHistory;
         private System.Windows.Forms.DataGridView dGridViewSaleHistory;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn BillNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn grdName;
@@ -946,8 +937,6 @@ namespace Medical_Store_App.Project_Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn TProfit;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewLinkColumn Edit;
         private System.Windows.Forms.DataGridViewLinkColumn Delete;
-        private System.Windows.Forms.Button btnPrint;
     }
 }
